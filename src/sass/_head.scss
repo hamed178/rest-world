@@ -1,0 +1,70 @@
+.header{    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+    background:var(--head-bg);
+    background-position: center;
+    background-size: cover;    
+    padding: 1rem;
+    border-radius: var(--Br-radious);
+
+    &-mode{        
+        min-width: 5rem;
+        height:3.4rem;   
+        cursor: pointer;     
+        background: var(--light);
+        border-radius: var(--Br-radious);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        svg{
+            display: inline-block;
+            width: 3rem;
+            height: 3rem;  
+        }   
+    }
+}    
+.tg-Rg{    
+    animation: toglleLeft 1s;
+    animation-fill-mode:forwards;
+}   
+.tg-Lf{    
+    animation: toglleRight 2s;
+    animation-fill-mode:forwards;
+}
+
+
+@keyframes toglleRight{
+    0%{
+        opacity: .5;
+        transform: rotate(.3turn);
+        margin-left: 5%;        
+    }
+    50%{
+        opacity: .7;
+        transform: rotate(.5turn);
+        margin-left: 50%;
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(1turn);
+        margin-left: auto;
+    }
+}
+@keyframes toglleLeft{
+    0%{
+        opacity: .5;
+        transform: rotate(.3turn);
+        margin-right: 5%;
+    }
+    50%{
+        opacity: .7;
+        transform: rotate(.5turn);
+        margin-right: 50%;
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(1turn);
+        margin-right: auto;
+    }
+}

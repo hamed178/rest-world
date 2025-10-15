@@ -1,0 +1,57 @@
+.load{
+    position: absolute;
+    width: 20rem;
+    height: 20rem;  
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    
+    &-img{
+        svg{
+            width: 90%;
+            height: 90%;
+            // background: url('src/assets/symbols.svg#icon-earth');  
+            background-position: center;  
+            background-size:cover;
+        }
+    }
+    .rotate{
+        animation: Rotation 2s infinite linear forwards;
+
+    }
+    &-message{
+        margin-top: 3rem;
+        text-align: center;
+    }
+    &-error{
+        margin-top: 3rem;
+        text-align: center;
+        color: red;
+        // display: none;
+    }
+}
+@keyframes Rotation{
+    0%{
+        transform: rotate(0deg) scale(.9)  ;
+        opacity: .9;
+        
+    }
+    25%{
+        transform: rotate(90deg) scale(.6);
+        opacity: .7;
+    }
+    50%{
+        
+        transform: rotate(180deg) scale(.8);
+        opacity: .8;
+    }
+    75%{        
+        transform: rotate(270deg) scale(.9);
+        opacity: 1;
+    }
+    100%{
+        transform: rotate(360deg) scale(1);
+        opacity: .8;
+        // display: none;
+    }
+}
