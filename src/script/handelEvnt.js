@@ -8,7 +8,7 @@ async Render(){
 
         list.innerHTML=" ";
         
-        const data = await reqJson('https://restcountries.com/v3.1/all?fields=name,flags,currencies,population,capital,region,borders,languages,cca2,cca3')
+        const data = await reqJson('https://restcountries.com/v5/all?fields=name,flags,currencies,population,capital,region,borders,languages,cca2,cca3')
         renderCard({},'spiner')
         list.innerHTML = "";
         data.forEach(e => {
