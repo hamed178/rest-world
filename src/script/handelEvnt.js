@@ -9,14 +9,21 @@ class Genral {
     async Render() {
         try {
             list.innerHTML = "";
+            this.#data = [];
 
             const result = await reqJson(
-                'https://api.restcountries.com/v5.1/all'
+                'https://api.restcountries.com/countries/v5?response_fields=names.common,names.official,flag,currencies,population,capitals,region,borders,languages,codes.alpha_2,codes.alpha_3',
+                {
+                    headers: {
+                        Authorization:
+                            'Bearer rc_live_7bf72076d32b4169a7d6606ac99ed8d6'
+                    }
+                }
             );
 
             renderCard({}, 'spiner');
 
-            // v5 response -> convert it to the old v3.1 structure
+            // Convert v5 data to the structure your old project expects
             const data = result.data.objects.map(country => ({
                 name: {
                     common: country.names?.common || "",
@@ -94,7 +101,7 @@ class Genral {
 
             const selData = this.#data.filter(country => {
 
-                const commonName =
+                const name =
                     country.name.common?.toLowerCase() || "";
 
                 const cca2 =
@@ -104,7 +111,7 @@ class Genral {
                     country.cca3?.toLowerCase() || "";
 
                 return (
-                    commonName.includes(val) ||
+                    name.includes(val) ||
                     cca2.includes(val) ||
                     cca3.includes(val)
                 );
